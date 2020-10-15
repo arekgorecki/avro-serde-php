@@ -41,7 +41,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_encode_a_record_with_schema_and_subject(): void
+    public function it_should_encode_a_record_with_schema_and_subject()
     {
         $this->registryMock
             ->expects($this->at(0))
@@ -73,7 +73,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
      * @expectedException \FlixTech\AvroSerializer\Objects\Exceptions\AvroEncodingException
      * @expectedExceptionCode 501
      */
-    public function it_should_throw_encoding_exception_on_invalid_schema(): void
+    public function it_should_throw_encoding_exception_on_invalid_schema()
     {
         $this->registryMock
             ->expects($this->once())
@@ -89,7 +89,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
      *
      * @expectedException \FlixTech\SchemaRegistryApi\Exception\SchemaNotFoundException
      */
-    public function it_should_not_register_new_schemas_by_default(): void
+    public function it_should_not_register_new_schemas_by_default()
     {
         $this->registryMock
             ->expects($this->once())
@@ -107,7 +107,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_register_new_schemas_when_configured(): void
+    public function it_should_register_new_schemas_when_configured()
     {
         $recordSerializer = new RecordSerializer($this->registryMock, ['register_missing_schemas' => true]);
 
@@ -146,7 +146,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
      *
      * @expectedException \FlixTech\SchemaRegistryApi\Exception\SubjectNotFoundException
      */
-    public function it_should_fail_when_the_subject_is_not_found(): void
+    public function it_should_fail_when_the_subject_is_not_found()
     {
         $this->registryMock
             ->expects($this->once())
@@ -164,7 +164,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_register_new_subject_when_configured(): void
+    public function it_should_register_new_subject_when_configured()
     {
         $recordSerializer = new RecordSerializer($this->registryMock, ['register_missing_subjects' => true]);
 
@@ -203,7 +203,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
      *
      * @expectedException \FlixTech\SchemaRegistryApi\Exception\SubjectNotFoundException
      */
-    public function it_should_fail_when_the_subject_is_not_found_via_promise(): void
+    public function it_should_fail_when_the_subject_is_not_found_via_promise()
     {
         $this->registryMock
             ->expects($this->once())
@@ -223,7 +223,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
      *
      * @expectedException \LogicException
      */
-    public function it_should_fail_when_an_unexpected_exception_is_wrapped_in_a_promise(): void
+    public function it_should_fail_when_an_unexpected_exception_is_wrapped_in_a_promise()
     {
         $this->registryMock
             ->expects($this->once())
@@ -241,7 +241,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_decode_wire_protocol_messages_correctly(): void
+    public function it_should_decode_wire_protocol_messages_correctly()
     {
         $this->registryMock
             ->expects($this->at(0))
@@ -270,7 +270,7 @@ class RecordSerializerTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_decode_with_readers_schema(): void
+    public function it_should_decode_with_readers_schema()
     {
         $this->registryMock
             ->expects($this->at(0))

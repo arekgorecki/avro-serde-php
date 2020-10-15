@@ -13,7 +13,7 @@ class DefaultRecordSerializerFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_produce_a_default_RecordSerializer(): void
+    public function it_should_produce_a_default_RecordSerializer()
     {
         $serializer = DefaultRecordSerializerFactory::get('http://localhost');
 

@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "php": "^7.1",
+    "php": "7.0",
     "beberlei/assert": "~2.7",
     "flix-tech/avro-php": "^2.0",
     "flix-tech/confluent-schema-registry-api": "^5.0",

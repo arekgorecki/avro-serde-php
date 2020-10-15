@@ -13,7 +13,7 @@ class CallableResolverTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_use_callable_for_resolving_value_schemas(): void
+    public function it_should_use_callable_for_resolving_value_schemas()
     {
         $resolver = new CallableResolver(constt($this->avroSchema));
 
@@ -24,7 +24,7 @@ class CallableResolverTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_use_callable_for_resolving_key_schemas(): void
+    public function it_should_use_callable_for_resolving_key_schemas()
     {
         $resolver = new CallableResolver(constt($this->avroSchema), constt($this->readersSchema));
 

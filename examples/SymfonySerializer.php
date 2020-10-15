@@ -38,7 +38,7 @@ class User
         return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -48,7 +48,7 @@ class User
         return $this->age;
     }
 
-    public function setAge(int $age): void
+    public function setAge(int $age)
     {
         $this->age = $age;
     }

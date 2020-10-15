@@ -26,7 +26,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_always_provide_correct_version(): void
+    public function it_should_always_provide_correct_version()
     {
         $this->assertSame(version(), WIRE_FORMAT_PROTOCOL_VERSION);
     }
@@ -34,7 +34,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function encode_should_produce_Right_Either_Monad_with_valid_protocol(): void
+    public function encode_should_produce_Right_Either_Monad_with_valid_protocol()
     {
         $encoded = encode(WIRE_FORMAT_PROTOCOL_VERSION, self::SCHEMA_ID, self::HEX_BIN);
 
@@ -45,7 +45,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function encoder_factory_should_create_curried_function(): void
+    public function encoder_factory_should_create_curried_function()
     {
         $encoder = encoder(WIRE_FORMAT_PROTOCOL_VERSION);
 
@@ -58,7 +58,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function protocol_decoder_should_decode_correctly(): void
+    public function protocol_decoder_should_decode_correctly()
     {
         $binaryInput = \hex2bin(self::HEX_BIN);
         $decoded = decode($binaryInput);
@@ -76,7 +76,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function protocol_decoder_should_turn_Left_with_Exception_for_invalid_inputs(): void
+    public function protocol_decoder_should_turn_Left_with_Exception_for_invalid_inputs()
     {
         $binaryInput = \hex2bin(self::INVALID_BIN_TOO_SHORT);
         $decoded = decode($binaryInput);
@@ -88,7 +88,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function validator_factory_should_return_curried_function(): void
+    public function validator_factory_should_return_curried_function()
     {
         $this->assertEquals(
             curryN(2, validate)(WIRE_FORMAT_PROTOCOL_VERSION),
@@ -99,7 +99,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function validate_should_inspect_unpacked_array_correctly(): void
+    public function validate_should_inspect_unpacked_array_correctly()
     {
         $decoded = [
             PROTOCOL_ACCESSOR_VERSION => WIRE_FORMAT_PROTOCOL_VERSION,
@@ -116,7 +116,7 @@ class ProtocolTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function validate_returns_nothing_for_invalid_unpacked(): void
+    public function validate_returns_nothing_for_invalid_unpacked()
     {
         $decoded = [
             PROTOCOL_ACCESSOR_VERSION => 1,

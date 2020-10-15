@@ -34,7 +34,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_only_support_encoding_Avro_format(): void
+    public function it_should_only_support_encoding_Avro_format()
     {
         $this->assertTrue($this->avroSerDeEncoder->supportsEncoding(AvroSerDeEncoder::FORMAT_AVRO));
         $this->assertFalse($this->avroSerDeEncoder->supportsEncoding('any'));
@@ -43,7 +43,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_only_support_decoding_Avro_format(): void
+    public function it_should_only_support_decoding_Avro_format()
     {
         $this->assertTrue($this->avroSerDeEncoder->supportsDecoding(AvroSerDeEncoder::FORMAT_AVRO));
         $this->assertFalse($this->avroSerDeEncoder->supportsDecoding('any'));
@@ -52,7 +52,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_encode_with_valid_encode_context(): void
+    public function it_should_encode_with_valid_encode_context()
     {
         $context = [
             AvroSerDeEncoder::CONTEXT_ENCODE_WRITERS_SCHEMA => $this->avroSchema,
@@ -76,7 +76,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
     /**
      * @test
      */
-    public function it_should_decode_with_valid_decode_context(): void
+    public function it_should_decode_with_valid_decode_context()
     {
         $this->recordSerializerMock->expects($this->at(0))
             ->method('decodeMessage')
@@ -113,7 +113,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
      *
      * @param array $context
      */
-    public function it_should_validate_encode_context(array $context): void
+    public function it_should_validate_encode_context(array $context)
     {
         $this->recordSerializerMock->expects($this->never())
             ->method('encodeRecord');
@@ -125,7 +125,7 @@ class AvroSerDeEncoderTest extends AbstractFunctionalTestCase
         );
     }
 
-    public static function encodeContextValidationDataProvider(): ?\Generator
+    public static function encodeContextValidationDataProvider()
     {
         yield 'Invalid writer\'s schema in encode context' => [
             [

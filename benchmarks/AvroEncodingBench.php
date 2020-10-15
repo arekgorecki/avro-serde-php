@@ -22,24 +22,24 @@ use PhpBench\Benchmark\Metadata\Annotations\Revs;
  */
 class AvroEncodingBench
 {
-    public const ASYNC = 'async';
-    public const ASYNC_CACHED = 'async_cached';
-    public const SYNC = 'sync';
-    public const SYNC_CACHED = 'sync_cached';
+    const ASYNC = 'async';
+    const ASYNC_CACHED = 'async_cached';
+    const SYNC = 'sync';
+    const SYNC_CACHED = 'sync_cached';
 
-    public const TEST_MODES = [
+    const TEST_MODES = [
         self::ASYNC,
         self::ASYNC_CACHED,
         self::SYNC,
         self::SYNC_CACHED,
     ];
 
-    public const TEST_RECORD = [
+    const TEST_RECORD = [
         'name' => 'Thomas',
         'age' => 36,
     ];
 
-    public const SCHEMA_JSON = /** @lang JSON */
+    const SCHEMA_JSON = /** @lang JSON */
         <<<JSON
 {
   "type": "record",
@@ -66,7 +66,7 @@ JSON;
      */
     private $schema;
 
-    public function setUp(): void
+    public function setUp()
     {
         $this->schema = \AvroSchema::parse(self::SCHEMA_JSON);
 
@@ -104,7 +104,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchEncodeWithSyncRegistry(): void
+    public function benchEncodeWithSyncRegistry()
     {
         $this->serializers[self::SYNC]->encodeRecord('test', $this->schema, self::TEST_RECORD);
     }
@@ -116,7 +116,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchDecodeWithSyncRegistry(): void
+    public function benchDecodeWithSyncRegistry()
     {
         $this->serializers[self::SYNC]->decodeMessage($this->messages[self::SYNC]);
     }
@@ -128,7 +128,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchEncodeWithAsyncRegistry(): void
+    public function benchEncodeWithAsyncRegistry()
     {
         $this->serializers[self::ASYNC]->encodeRecord('test', $this->schema, self::TEST_RECORD);
     }
@@ -140,7 +140,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchDecodeWithAsyncRegistry(): void
+    public function benchDecodeWithAsyncRegistry()
     {
         $this->serializers[self::ASYNC]->decodeMessage($this->messages[self::ASYNC]);
     }
@@ -152,7 +152,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchEncodeWithAsyncCachedRegistry(): void
+    public function benchEncodeWithAsyncCachedRegistry()
     {
         $this->serializers[self::ASYNC_CACHED]->encodeRecord('test', $this->schema, self::TEST_RECORD);
     }
@@ -164,7 +164,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchDecodeWithAsyncCachedRegistry(): void
+    public function benchDecodeWithAsyncCachedRegistry()
     {
         $this->serializers[self::ASYNC_CACHED]->decodeMessage($this->messages[self::ASYNC_CACHED]);
     }
@@ -177,7 +177,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchEncodeWithSyncCachedRegistry(): void
+    public function benchEncodeWithSyncCachedRegistry()
     {
         $this->serializers[self::SYNC_CACHED]->encodeRecord('test', $this->schema, self::TEST_RECORD);
     }
@@ -189,7 +189,7 @@ JSON;
      * @throws \Exception
      * @throws \FlixTech\SchemaRegistryApi\Exception\SchemaRegistryException
      */
-    public function benchDecodeWithSyncCachedRegistry(): void
+    public function benchDecodeWithSyncCachedRegistry()
     {
         $this->serializers[self::SYNC_CACHED]->decodeMessage($this->messages[self::SYNC_CACHED]);
     }
