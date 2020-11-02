@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "php": "7.0",
+    "php": "^7.0",
     "beberlei/assert": "~2.7",
     "flix-tech/avro-php": "^2.0",
     "widmogrod/php-functional": "3.2"
